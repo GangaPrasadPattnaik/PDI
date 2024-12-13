@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>echo</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    // implement resource here
+    var message = request.pathParams.msg;
+    var requestBody = request.body.data;
+    var bodymessage = requestBody.bodymessage;
+	var returnfromSI = new scriptinclude1().function1();
+    var retObj = {
+        "inputmessage in URL": message,
+        "static message ": "OK",
+        "input body full text": requestBody,
+        "inputed message in body in bodymessage tag": bodymessage,
+		"returnfromSI":returnfromSI
+
+    };
+    response.setBody(retObj);
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_810111_ganga/ganga/echo/{msg}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/echo/{msg}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-12-12 14:40:37</sys_created_on>
+        <sys_id>a30c987b53565210c93817c0a0490e8a</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>echo</sys_name>
+        <sys_package display_value="Ganga" source="x_810111_ganga">adea10ff53165210c93817c0a0490e81</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ganga">adea10ff53165210c93817c0a0490e81</sys_scope>
+        <sys_update_name>sys_ws_operation_a30c987b53565210c93817c0a0490e8a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-12-12 16:06:07</sys_updated_on>
+        <web_service_definition display_value="ganga">29fb187b53565210c93817c0a0490e43</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
